@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %} 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Clima</title>
+  
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <!-- My CSS-->
+    <link href="{% static './css/style.css' %}" rel="stylesheet">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/80cec574fb.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <nav class="row" style="background-color: grey;">
+        <div class="title">
+            <h1 class="col-md-3 text-center">Weather Detector</h1>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <main class="row" style="display: flex; justify-content: center; align-items: center;">
+        <form action="" method="post" class="col-md-6 col-md-offset-3">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" class="form-control" name="city" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+            {% if data.country_code %}
+            <div class="col-md-6 col-md-offset-3">
+                <h1>{{city}}</h1>
+                <h3>country code : {{data.country_code}}</h3>
+                <h5>temp : {{data.temp}}</h5>
+                <h5>coordinate : {{data.coordinate}}</h5>
+                <h5>pressure : {{data.pressure}} </h5>
+                <h5>humidity : {{data.humidity}}</h5>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
