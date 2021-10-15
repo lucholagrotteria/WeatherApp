@@ -1,3 +1,13 @@
-.row{
-    background-color: blue;
+.row-nav{
+    background-color: grey;
 }
+
+.row-main{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+
+

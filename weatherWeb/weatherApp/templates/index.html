@@ -25,14 +25,14 @@
 </head>
 
 <body>
-    <nav class="row" style="background-color: grey;">
+    <nav class="row-nav">
         <div class="title">
             <h1 class="col-md-3 text-center">Weather Detector</h1>
         </div>
     </nav>
     <br />
     <br />
-    <main class="row" style="display: flex; justify-content: center; align-items: center;">
+    <main class="row-main">
         <form action="" method="post" class="col-md-6 col-md-offset-3">
             {% csrf_token %}
             <div class="input-group">
@@ -44,15 +44,15 @@
                 </div>
             </div>
         </form>
-        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        <div class="data">
             {% if data.country_code %}
             <div class="col-md-6 col-md-offset-3">
-                <h1>{{city}}</h1>
-                <h3>country code : {{data.country_code}}</h3>
-                <h5>temp : {{data.temp}}</h5>
-                <h5>coordinate : {{data.coordinate}}</h5>
-                <h5>pressure : {{data.pressure}} </h5>
-                <h5>humidity : {{data.humidity}}</h5>
+                <h1>country: {{city}}</h1>
+                <h3>country code: {{data.country_code}}</h3>
+                <h5>temp: {{data.temp}}</h5>
+                <h5>coordinate: {{data.coordinate}}</h5>
+                <h5>pressure: {{data.pressure}} </h5>
+                <h5>humidity: {{data.humidity}}</h5>
             </div>
             {% endif %}
         </div>
